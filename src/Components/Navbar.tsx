@@ -3,17 +3,13 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <div>
-      <nav className="flex justify-start flex-wrap bg-purple-navbar p-6 w-full">
-        <div className="w-full block flex-grow">
-          <div className="text-sm">
-            <Link
-              to="/"
-              className="mt-4 text-xl text-white font-bold hover:text-purple-dark mr-4"
-            >
-              Home
-            </Link>
-          </div>
-        </div>
+      <nav className="flex items-center bg-purple-navbar px-6 py-4 w-full shadow-md">
+        <Link
+          to="/"
+          className="text-xl text-white font-bold tracking-tight transition-colors hover:text-purple-haze"
+        >
+          Sorting Visualizer
+        </Link>
       </nav>
     </div>
   );
