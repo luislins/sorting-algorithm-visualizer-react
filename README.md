@@ -4,7 +4,6 @@ Three sorting algorithms animated as bars, in React + TypeScript. Pick an
 algorithm, set the speed, watch it run.
 
 <!-- SCREENSHOT: add docs/visualizer.png -->
-<!-- LIVE DEMO: add the deploy URL here and in the repo's About field -->
 
 ## What it does
 
