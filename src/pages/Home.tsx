@@ -201,18 +201,20 @@ function Home() {
   }
 
   return (
-    <div className="flex items-center justify-center container mx-auto -mt-16 h-full">
-      <div className="grid col-1 items-center justify-center">
-        <div className="flex relative text-xl bg-violet p-10 rounded-xl h-96">
-          <div className="absolute top-0 text-sm right-0 mr-5 mt-2">
-            <button
-              disabled={disableButtons}
-              onClick={() => {
-                setNumeros(geraArrayRandom);
-              }}
-            >
-              <i style={{ fontSize: "24px" }} className="fa fa-refresh mr-3" />
-            </button>
+    <div className="flex items-center justify-center px-4 py-10 min-h-[calc(100%-4rem)]">
+      <div className="grid col-1 items-center justify-center gap-6 w-full max-w-5xl">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <button
+            disabled={disableButtons}
+            onClick={() => {
+              setNumeros(geraArrayRandom);
+            }}
+            aria-label="Novo array aleatório"
+            className="h-9 w-9 flex items-center justify-center rounded-full bg-white/90 shadow-sm transition hover:bg-white disabled:opacity-50"
+          >
+            <i style={{ fontSize: "18px" }} className="fa fa-refresh text-purple-dark" />
+          </button>
+          <div className="flex flex-wrap gap-3">
             <button
               disabled={disableButtons}
               onClick={() => {
@@ -222,7 +224,7 @@ function Home() {
                   setVelocidade(velocidade + 1);
                 }
               }}
-              className="h-8 bg-white border rounded shadow-sm outline-none text-center font-semibold appearance-none w-32 mr-3"
+              className="h-9 bg-white/90 rounded-md shadow-sm outline-none text-center font-semibold appearance-none w-32 transition hover:bg-white disabled:opacity-50"
             >
               Velocidade x{velocidade}
             </button>
@@ -231,43 +233,43 @@ function Home() {
               onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
                 setMetodoOrdenacao(e.target.value);
               }}
-              className="text-gray-500 h-8 bg-white border rounded shadow-sm outline-none text-center font-semibold appearance-none w-32"
+              className="text-purple-dark h-9 bg-white/90 rounded-md shadow-sm outline-none text-center font-semibold appearance-none w-36 transition hover:bg-white disabled:opacity-50"
             >
               <option>Bubblesort</option>
               <option>Mergesort</option>
               <option>Selection sort</option>
             </select>
           </div>
+        </div>
+
+        <div className="flex items-end gap-2 bg-violet p-8 rounded-xl h-96 overflow-x-auto shadow-lg">
           {numeros.map((numero, index) => (
-            <div
-              key={index + 1 * Math.random()}
-              className="grid grid-cols-1 content-end"
-            >
+            <div key={index} className="flex flex-col items-center gap-2 shrink-0">
               <div
-                key={index + 1 * Math.random()}
                 style={{
                   backgroundColor: numero.cor ? numero.cor : "#281C2D",
                   height: numero.valor * 2.5,
+                  transition: "background-color 0.3s ease, height 0.3s ease",
                 }}
-                className="mb-2 w-5 h-10"
+                className="w-4 rounded-t-sm"
               ></div>
               <div
-                key={index}
                 style={{
-                  color: numero.cor,
-                  transition: "color 1s",
+                  color: numero.cor ?? "#281C2D",
+                  transition: "color 0.3s ease",
                 }}
-                className="mr-5"
+                className="text-xs font-medium"
               >
                 {numero.valor}
               </div>
             </div>
           ))}
         </div>
-        <div className="flex items-center justify-center mt-10">
+
+        <div className="flex items-center justify-center">
           <button
             disabled={disableButtons}
-            className="bg-violet text-purple-dark font-bold  p-1 rounded"
+            className="bg-violet text-white font-bold px-6 py-2 rounded-md shadow-sm transition hover:brightness-110 disabled:opacity-50"
             onClick={ordenar}
           >
             Ordenar

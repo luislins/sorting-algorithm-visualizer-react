@@ -3,7 +3,7 @@
 Three sorting algorithms animated as bars, in React + TypeScript. Pick an
 algorithm, set the speed, watch it run.
 
-<!-- SCREENSHOT: add docs/visualizer.png -->
+![Sorting visualizer](docs/visualizer.png)
 
 ## What it does
 
